@@ -1,0 +1,1092 @@
+
+
+
+
+What is a database-- data base is a collection of data and holds the data in the form of tables.
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+
+
+What is a table --- holds the data in form of rows and columns.
+---------------------------------------------------------------
+---------------------------------------------------------------
+
+
+It is similar to excel spreadsheet.
+-----------------------------------
+-----------------------------------
+When a excel spreadsheet holds the data in the same way why do we require this database?
+
+Problem with excel spreadsheet is it what if let's say 1000s of spreadsheets which hold more than 100000s of data
+it become very tidious and cumbersome and totally unmanageable to give insights to this huge data. This is why the better
+ way is to have a database and it will provide you n number of other functionalities also.
+
+-------------
+
+The database provides us the capability to access and manipulate this data.
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+
+
+Because storing the data is not the only thing we want, we should be able to interact with this data 
+we should be able to retrieve the data, we should be able to update or modify the data 
+whatever we want we should be able to and these are the one of the capabalities which our database will provide us.
+
+
+
+
+
+2 types of databases
+----------------------
+----------------------
+
+1. Relational Database - A relational database is the one in which we store the data 
+in the form of   rows & columns and also the tables have relation between them.
+For ex we might have employee id and departments table and each employee can have a department id 
+which relate them to that employee table which means two tables will have some relation on them.
+that's why we called it a relational database.
+
+MySQL
+SQL Server -- SSMS
+PostgreSQL
+
+SQLite
+MariaDB
+
+2. Non Relational Database (NOSQL Database) -- is the one where we have a Key value, Document, Graph  
+here the data is not stored in the form of rows and columns and also two tables do not have any relation in them
+
+Hbase
+Mongodb
+Cassandra
+------------------------
+
+--------
+
+
+
+why sql server-- SSMS- SQL Server Management Studio
+
+it is something which is used in lot of places. it is in very high demand that is why we are going to learn this 
+
+what if anyone ask to work on My SQL or postgreSQL I would say you would not have to really worry the sql staements 
+learned with this class should work on other databases like My SQL,  with minor changes.
+
+------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+
+SQL ---> SQL stands for structure query language -
+Because this language is used to work with structured data that is data in the form of rows and columns.
+
+SQL is a language through which we are interacting with the databases.
+So basically sql is a language through which you will be interacting with the databases.
+
+
+For ex --- we have a mysql data and someone says write a query to insert the data.
+or to update the record or to delete the record from their MySQL database  
+
+So MySQL is a database and SQL is a way to interact with this database. You can say to communicate with the database.
+
+
+--------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+SQL - s used to query a relational database.
+
+
+
+goormide
+Online -----https://ide.goorm.io/my/dashboard
+
+
+create container
+
+name mysql
+region - india
+
+select npde.js
+
+install mysql
+run container
+ 
+enable mysql-ctl cli;      command ---pta karo
+Windows: Press Ctrl + L to clear the MySQL command line on Windows systems. 
+MacOS: Press Cmd + K to clear the MySQL command line on MacOS. 
+Linux: Press Ctrl + L to clear the MySQL command line on Linux
+
+
+
+SHOW DATABASES;
+
+CREATE DATABASE ITPLC;
+
+DROP DATABASE ITPLC;
+
+USE ITPLC
+
+SELECT DATABASE
+
+CREATE TABLE employee
+(
+name VARCHAR(30),
+age INT,
+salary FLOAT
+);
+
+
+SHOW TABLES;
+
+------------------------------------------------------------------
+-------------------------------------------------------------------
+
+DESCRIBE employee; ---- gives structure of the table 
+
+even 
+
+DESC employee;
+
+Will work the same way. -- type less
+
+
+ 
+DROP TABLE employee;
+
+SHOW TABLE;
+---------------------------------------------------------
+
+
+DATABASE is for storing the data
+Relational vs NOSQL database ---> 
+SQL
+MySQL vs  SQL
+we get some pratcise to how to create a database and how to create a table, Basic data types,
+DROP TABLE, DROP DATABASE, DESCRIBE.
+
+
+
+-------------------------------------------------
+---------------------------------------------------
+
+CRUD Operations 
+
+that means when we have created a table:
+create --> means creating the new records.--> INSERT statement
+read -->  once the data is in the table we are reading it --> SELECT statements
+update --> means updating the record --> UPDATE statements
+delete --> means deleting a record --> DELETE statements
+
+ 
+
+
+Creation of table and insert statements.
+
+Now Consider you are a small startup and you ae looking to hire some employees and 
+you want to have an employee table to manage their database.
+
+So You are looking to have a employee table and now you are a Ahmedabad  based startup in India 
+and you your preference is to hire more employees from Ahmedabad that's what you want you prefer 
+to hire employee from Ahmedabad location. That is the one preference that you have for example.
+Now what table structure you can keep I mean there can be a lot of fields in the table but let's keep it simple 
+
+
+we can create a table for example create table okay so basically we will keep the table structure simple and then we will 
+refine it later so when you hire employees. Employee might have a first name, last name, middlename, and apart from that you 
+want to capture the age, salary and you might capture the location. So let's begin with this.
+to start with this is good enough to create table, table name. CREATE TABLE is the keyword that's why it's preferred that
+you keep it in uppercase but it's not that if you put it in lowercase you get error no but recommended that you put in uppercase
+for your reference so that you follow
+
+for firstname what will be the datatype, this is like a string so it will be VARCHAR we can say 255 characters ideally 255 is not 
+required because we know it won't consume 255 characters so we can keep it lt's say 20 characters similarly for middle and lastname
+because all of this is string type, age you know it's numeric so this will be integer salary is also numeric location is again varchar and will say 20 characters
+good enough so let me take this and go to my terminal you know how to reach to this we are using goorm ide and now I'll say 
+
+SHOW DATABAES;
+
+I want to give a fresh start because there will be some tables which are already there
+so I'll drop the database  and recreate it.
+
+DROP DATABASE itplc;
+
+
+CREATE DATABASE itplc;
+
+SHOW DATABASES; show I should be able to see itplc as one of the database I'll say use itplc so that I go inside this
+
+NOW let me create the table that we have in the definition we have written by the way just for your understanding this command 
+is called as a ddl DATA DEFINITION LANGUAGE because we are doing something with definition rather than data this is called ddl and we see 
+I'll talk about ddl and dml later do not worry but since it came I just brought that.
+
+ 
+CREATE TABLE employee (
+firstname VARCHAR(20),
+middlename VARCHAR(20),
+lastname VARCHAR(20),
+age INT,
+salary INT,
+location VARCHAR(20)
+);
+------- THIS is called DDL- data definition language.
+
+
+We have created this table now. with all of these columns looks perfect let me clear the screen and say 
+
+SHOW TABLES;
+
+I should be able to see employee table now let me see the structure of it
+
+
+I am able to see all column names and data types and null yes default value I'll talk more about it what does it mean 
+so there are other things too which we will talk in a while  now we have created a table which is empty right now
+how do you see the data inside a table using select command 
+
+
+SELECT * FROM employee;
+
+There are no records inside it that's why we see empty set 
+
+okay now let me insert some records how do I do that 
+
+let's say insert into employee means insert into table name now if you follow right practice make it caps 
+
+
+
+INSERT INTO employee VALUES('Satish', 'kumar', 'sharma', 
+28, 10000, 'Bangalore');
+
+name take satish and location is from Bengaluru. and run but let me tell you one good practice that it is not must but
+it is recommended that you give the list of column names here so for example 
+insert into employee and then you give this (firstname, middlename ) 
+
+
+
+INSERT INTO employee(firstname, middlename, lastname, age, salary, location)
+ VALUES('Kapil', 'kumar', 'sharma', 
+28, 10000, 'Bangalore');
+
+this is how we should be proceeding now let me try running this and see if it works
+done I am able to insert a record now let me go back and create one more insert command mmand 
+and I won't put this list here and let me make slight difference in the value let's say instead of 
+
+
+INSERT INTO employee VALUES('Satish', 'kumar', 'sharma', 
+28, 10000, 'Bangalore');
+
+having understood this let's try to do a select on this table 
+and my command i Want to run is 
+
+SELECT * FROM employee;
+
+
+ and I can see both the records are there  just have a look now what if I donot want to insert  data for all
+columns let's say someone do not have a middle name now make a copy of insert command and then what i would say here
+I do not want to give the middle name because lot of people do not have a middlename I do not have for example first name lastname age salary
+location 
+
+INSERT INTO employee(firstname, lastname, age, salary, location)
+ VALUES('rajesh', 'sharma', 
+32, 30000, 'Bangalore');
+
+It is inserted. We have not given the value of middle name now if you would have done the same without bringing this list
+into play for example what 
+
+
+
+INSERT INTO employee VALUES('rajesh', 'sharma', 
+28, 10000, 'Bangalore');
+
+this would definitely give an error because when you are not mentioning the list of column names then you
+ should be giving  all 
+of the values for all columns in your table you cannot leave any of them
+so we understood that this value or this insert doesn't work and that's why it's not inserted 
+
+let me do a select * again
+
+You might be wondering what is null is it 0 or is it no value null is basically undefined you cannot sahy that it is 0 or you
+cannot say that there is no value like that you say that we do not know. We cannot treat it like a 0 or something 
+
+basically it's like unknown I would say the value of it is unknown so this is how this works. 
+
+just have a look at above statements what I've written 
+
+
+Now what if let's say for any reason you want to have some single quote inside name rightly name would not have that's not 
+the right example but let's say you are having some column where there is a requirement that you want to pull a single quote as a 
+value for example 
+
+
+
+INSERT INTO employee(firstname, middlename, lastname, age, salary, location)
+ VALUES('Kapil's', 'kumar', 'sharma', 
+28, 10000, 'Bangalore');
+ 
+you can see that somehow the structure is all  
+messed up 
+because it's not closing the single quotes properly then how we can tackle this scenario 
+
+okay so what you should do is there are basically two ways instead of single quotes if you give this double quotes like this
+will work because single quote you can replace with double quotes it's not an issue so this double quote which is starting at 
+the beginning is getting ended here and that's why this single quote becomes part of value and this should not give any issues
+let me try 
+
+INSERT INTO employee(firstname, lastname, age, salary, location)
+ VALUES("Kapil's", 'sharma', 28, 10000, 'Bangalore');
+
+
+I HOPE THIS IS clear
+
+I would show one more way to do the same what you can do is let's say you want to use single quote only for example
+
+
+
+INSERT INTO employee(firstname, lastname, age, salary, location)
+ VALUES('Kapil\'s', 'sharma', 28, 10000, 'Bangalore');
+
+you can give a backslash. I would say when you are giving backslach it will understand that next character I have to consider.
+Basically we say it as an escape character so that this will be treated as a value now so let me show 
+this is working same way we did previously I HOPE THIS  is clear.
+
+
+
+Let's see how do we insert multiple values in one go for example
+ 
+
+INSERT INTO employee(firstname, middlename, lastname, age, salary, location)
+ VALUES('Jayesh', 'kumar', 'sharma', 42, 70000, 'Bangalore'),
+('Sunil', 'kumar', 'sharma', 29, 60000, 'Ahmedabad'),
+('Mahesh', 'kumar', 'sharma', 25, 40000, 'Bhavnagar'),
+('Suresh', 'kumar', 'sharma', 33, 48000, 'Calcutta'),
+('Jignesh', 'kumar', 'sharma', 35, 50000, 'Siwan'),
+('Rakesh', 'kumar', 'sharma', 32, 45000, 'Delhi');
+
+In this case I have shown how I inserted two records in one go you can do 10 records 20 records so this is like bulk insert 
+I hope this is clear 
+So we have understood how to write normal insert and we how to write a multiple insert  how do we enter the value of single quote
+same way we can enter value of double quote also if double quote is also coming as a value then we can do it
+
+
+
+INSERT INTO employee(firstname, lastname, age, salary, location)
+ VALUES('Kapil\"s', 'sharma', 28, 10000, 'Bangalore');
+
+
+
+
+
+
+and you remember the first name, middlename, and lastname we say 20 characters 
+what if we are trying to give more than 20 ideally it won't be more than 20 but let's say for some reason
+it is more than 20 let's say 
+
+
+INSERT INTO employee(firstname,  lastname, age, salary, location)
+ VALUES('adhhgadhjgsfasdfghdsgfjsdgfkjsdjk', 'sharma', 
+28, 38000, 'Bangalore');
+
+error why is that it shows why because it could hold 20 characters as per our definition that we have given 
+but now we are trying to enter something more that's why it's not taking it and same will be the case even 
+
+
+and now let's try runningnit 
+
+
+INSERT INTO employee VALUES('Satish', 'kumar', 'sharma', 
+28, 10000, 'Bangalore');  ---> Not recommended
+
+
+What if you have datatype mismatch 
+
+
+INSERT INTO employee(firstname,  lastname, age, salary, location)
+ VALUES('rajesh', 'sharma', 'twenty', 10000, 'Bangalore');
+
+OKay so I hope we are good and you see that how strict is the database that it won't allow you 
+to enter wrong things that's why the integrity and all is quite well maintained in a database.
+
+
+let's talk about null --- what is null -- Nu
+
+NULL --> Means Something which is Unknown --> 
+For example middle name not everyone will have that's why it can be null
+but can be first name be null no.
+
+In our case I mean we can still enter  no value for firstname and
+it will take as null which is wrong What I am trying to say for example 
+
+INSERT INTO employee(lastname, age, salary, location)
+ VALUES('sharma', 21, 10000, 'Bangalore');
+
+if I do this insert first name I am removing and then just doing this insert 
+Technically this will work but is is correct we have to understand it 
+
+SELECT * FROM employee;
+
+We can see first name is coming as null in what actual scenarios will the first name be null
+right none of the cases so we should not allow null value  for such things where we should allow I mean 
+it's not that we give a freedom that anything can be entered as null that's wrong right.
+
+So let me structure this table well so that no one can enter null value for first name.
+Let's do that 
+
+
+DROP TABLE employee;
+
+now I want to recreate it so will take previous definition and tweak it slightly 
+
+CREATE TABLE employee (
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20)
+);    -- > Better Approach than the previous one
+
+
+first name not null that means null values are not allowed for this by default middle name is nullable so we do not have to 
+mention anything
+ofcourse age should be entered without any second thought I mean it can't be null salary should also not null location definitely 
+it has to be not null except middle name all the fields are compulsory
+
+
+we have created a better definition than the one by
+
+-- > Putting the right constraints into the play. so that no one can enter null values for things where we should not be 
+entering them  now let's see the structure of this table 
+
+DESC employee;
+
+We can see that in first name is null allowed no  
+
+
+that means atleast this is correct 
+just have a look at this 
+
+if we try running previous insert statement it won't allow us to do that
+
+
+INSERT INTO employee(lastname, age, salary, location)
+ VALUES('sharma', 21, 10000, 'Bangalore');
+
+don't worry about what's it's saying but why this error we have got is because it cannot be null.
+
+I hoe this is clear
+
+
+
+Let's talk about Default values;
+
+Now consider this thing that this location.
+As we know we intend to hire mostly people from bangalore location that was the first preference we have mentioned
+at the very starting if I do
+I mean whatever mostly you will be entering will be people from bangalore location so why do we have to always mention bangalore
+if we do not mention and it takes bangalore by default won't that be great because 95% of the population you are hiring from bangalore
+then why do you have to explicitly mention you say that if I do not mention consider it as bangalore by default otherwise I'll
+mention if it is something else makes sense right so let's try to get that model.
+
+
+DROP TABLE employee;
+and I would create it with new definition which is again a better definition than the previous one 
+
+CREATE TABLE employee (
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20) DEFAULT 'Bengaluru'
+);
+
+this is what I am trying to do just have a look now what I would do I will create this table definition and I will show you describe.
+
+DESC employee;
+
+you can see by default the value is bangalore here that means if you do not give anything it will be bangalore.
+I hope this is clear.
+
+Now let me try inserting some records in this table I'll pick some records from earlier and will try
+
+
+INSERT INTO employee(firstname, middlename, lastname, age, salary, location)
+ VALUES('Jayesh', 'kumar', 'sharma', 42, 70000, 'Bangalore'),
+('Sunil', 'kumar', 'sharma', 29, 60000, 'Ahmedabad'),
+('Mahesh', 'kumar', 'sharma', 25, 40000, 'Bhavnagar'),
+('Suresh', 'kumar', 'sharma', 33, 48000, 'Calcutta'),
+('Jignesh', 'kumar', 'sharma', 35, 50000, 'Siwan'),
+('Rakesh', 'kumar', 'sharma', 32, 45000, 'Delhi');
+
+
+
+INSERT INTO employee(firstname, lastname, age, salary)
+ VALUES('Jayesh', 'sharma', 42, 70000),
+('Sunil', 'sharma', 29, 60000);
+
+now in this case what do you expect?
+what will be the middle name -----NULL
+
+and What should be location it should be bengaluru let's see
+
+by default the value is bangalore as we said out of 100 people whom we are hiring 95 are from bangalore then why to explicitly
+enter by default system will consider it as bangalore but my chances are rarest affair case if someone is hired from hyderabad
+chennai we can mention how let's see.
+
+
+INSERT INTO employee(firstname, middlename, lastname, age, salary, location)
+VALUES('Mahesh', 'kumar', 'sharma', 25, 40000, 'Bhavnagar'),
+('Suresh', 'kumar', 'sharma', 33, 48000, 'Calcutta'),
+('Jignesh', 'kumar', 'sharma', 35, 50000, 'Siwan'),
+('Rakesh', 'kumar', 'sharma', 32, 45000, 'Delhi');
+
+I hope this should make sense
+
+so this is how default values work even for age you can do I mean if it is logically feasible
+for you so this is how you can give any number of default values for any column for each column it will be one 
+default value but you can give it for multiple columns.
+
+
+Let me just again describe the table 
+DESC employee;
+
+you can see this location field or column has a default value and is it nullable yes
+that means when we are not giving any value it's bangalore what we can do in this in this case we can
+manually set the value as null.
+this permits us because it is nullable for example
+
+INSERT INTO employee(firstname, middlename, lastname, age, salary, location)
+VALUES('Mahesh', 'kumar', 'sharma', 25, 40000, NULL);
+
+you can see here 
+if we would have not given anything it would have not given anything it would have taken bangalore 
+otherwise we could specify and null is also allowed. if you want to restrict this null then you have to make it not null
+so let me quickly drop 
+
+DROP TABLE employee;
+
+and recreate it very very quick
+
+
+CREATE TABLE employee (
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20) NOT NULL DEFAULT 'Bengaluru'
+);
+
+means null won't be even allowed manually then
+and now if i try to insert same thing as earlier it won't work for sure
+
+so that is where you can combine not null and default 
+if I do not give anything it would have taken as bangalore if I remove this 
+
+
+INSERT INTO employee(firstname, lastname, age, salary)
+VALUES('Mahesh', 'sharma', 25, 40000);
+
+
+now it works 
+
+
+till now 
+
+CRUD operations
+
+SIMPLE inserts
+
+multiple inserts
+
+datatype mismatch
+
+NULL and NOT NULL 
+
+DEFAULT VALUES
+
+NOT NULL AND DEFAULT
+
+
+-------------------------------
+---------------------------------------
+
+
+Primary Key
+
+Auto Increment Keys
+
+Unique Key
+
+Primary Key vs Unique Key
+
+
+
+Let's say whatever the table we have here there can be two employees with the name let's say Rajesh Joshi --
+two employees with the same name how do you uniquely indentify both that is where we have a concept of primary key 
+that means when we define a primary key we can uniquely identify each and every record in a table what I mean to say
+
+
+INSERT INTO employee(firstname, lastname, age, salary)
+VALUES('Mahesh', 'sharma', 25, 40000);
+
+
+PRIMARY KEY === This helps us to uniquely identify each record in the table
+
+
+CREATE TABLE employee (
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20) NOT NULL DEFAULT 'Bengaluru'
+);
+
+USE PRIMARY KEY ----> i.e. identifying each record uniquely.
+
+CREATE TABLE employee (
+id int,
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20) NOT NULL DEFAULT 'Bengaluru'
+);
+
+
+
+INSERT INTO employee(id, firstname, lastname, age, salary)
+VALUES(1, 'Mahesh', 'sharma', 25, 40000);
+
+--twice 
+
+What if I insert one more record with the same thing ? 
+
+it worked and even when I do a SELECT staement you can see this id is 1 by default it is not a primary key or something
+we have to make it so that whenever we try to create one more record with that id it gives an error that is what I want to show 
+you 
+
+SELECT * FROM employee;
+
+
+DROP TABLE employee;
+
+
+
+CREATE TABLE employee (
+id INT PRIMARY KEY,
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20) NOT NULL DEFAULT 'Bengaluru'
+);
+
+If I do this then definitely multiple employees cannot have a repeated id
+
+Let me show you ---
+
+DESC employee;
+
+
+--You can see this id is a primary key okay and location is a default thing where primary value is 'bangalore'
+
+
+INSERT INTO employee(id, firstname, lastname, age, salary)
+VALUES(1, 'Mahesh', 'sharma', 25, 40000);
+
+it gives me a error
+
+A PRIMARY key says that I won't allow any NULL and I won't allow any repeated values
+
+
+let me try entering some null values just to see if it works;
+
+
+INSERT INTO employee(id, firstname, lastname, age, salary)
+VALUES(NULL, 'Mahesh', 'sharma', 25, 40000);
+
+why because it is a primary key 
+
+What is the good candidate for the primary key something based on which you want to uniquely identified someone 
+for example a customer id in a customer table, employee id and employees table, student roll number in a class things like that
+where you know it can't be duplicated.
+
+One more way with which we could have defined a primary key is =====
+if we don't wana use PRIMARY KEY their(earlier near id) 
+
+there is one more way we could have done something 
+
+CREATE TABLE employee (
+id INT,
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20) NOT NULL DEFAULT 'Bengaluru'
+PRIMARY KEY(id)
+);
+
+a slight syntax change ---just for letting you know 
+
+
+and now sometimes you can have a primary key on a combination of two columns then in that case let's say if it is for example
+
+CREATE TABLE employee (
+id INT,
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20) NOT NULL DEFAULT 'Bengaluru'
+PRIMARY KEY(id,name)
+);
+
+--it is like a composite primary key which is on two columns.
+
+sometimes based on two columns you want to have a composite primary key that means a combination of these two cannot 
+be duplicated or should 
+We will be seeing that more in our practical demonestrations later when we talk about some quality examples once we have 
+done the basics and all 
+
+Id of the previous employee and then we have to enter the next one  for example you have 10 employees right now then you know this 
+id value will be 10 and you have to now enter 11 but how do you remember it has to be 11 it gets tricky to identify that
+is why we should go for a auto increment that means you don't have to worry we do not give this value what if this value can 
+increment again and again one month whenever we are inserting.
+
+DROP TABLE employee;
+
+
+let's change this slightly  --
+
+CREATE TABLE employee (
+id INT AUTO_INCREMENT,
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20) NOT NULL DEFAULT 'Bangalore',
+PRIMARY KEY(id)
+);
+
+by which what I am saying i donot want to manually give this value always please start with 1 and then keep on incrementing
+
+that taht's what we want now let me just
+
+DESC employee;
+
+-- you can see under the extra column we are seeing auto increment for id which is primary key also that means it wont be duplicated
+and its auto increment.
+
+
+ I hope this is clear now let me try entering some values for this of course 
+
+
+INSERT INTO employee(firstname, lastname, age, salary)
+VALUES('Mahesh', 'sharma', 25, 40000);
+
+-- I removed id and i don't have to worry really about it.
+
+-- What do you expect will be the value of id in this case 
+
+i have not manually given it 
+
+let's check
+
+SELECT * FROM employee;
+
+
+INSERT INTO employee(firstname, lastname, age, salary)
+VALUES('kapil', 'sharma', 25, 40000);
+
+-- id in this case 
+
+
+-- it will auto increment you don't have to really worry about it now so i mean auto increment is a good candidate
+for primary key because then ofcourse you know when it incrementing all times it will be unique dinstinct.
+
+
+UNIQUE KEYS====== 
+
+you can have only one primary key and the primary key cannot hold any Null value and ideally we should use primary key when 
+we have to distinctly identified or uniquely identify each record we should use primary key when we have to uniquely 
+identify each record.
+
+Unique key is also cannot hold any duplicates just like primary key but unique key can hold null,
+how many null values it can hold ----- Now based on the databases this might change 
+for example 
+
+in MySQL a unique key can hold any number of null values that means it feels that all nulls are different unknown value 
+right but in some of the other databses it holds only one null.
+
+we cannot give more nulls to that but since we are using mysql you will be able to find that you can give any number of null 
+values to a unique key
+what is the whole purpose of the unique key is to make sure that you do not get repeated values for example email id's you
+don't want to differentiate each user based on email id but you want to make sure if someone has taken an email id 
+other cannot take it.
+
+But the purpose of primary key was to make sure we can uniquely identify a record --- one more important thing you can have 
+unique keys on more than one column that means thre can be three columns where you have different unique keys but in case of a 
+table we can have only one primary key now you might get confuse with the composite column or where two columns together have
+a primary key that's a different thing but still we have one primary key right so we can have only one primary key but multiple 
+unique keys in a table.
+
+for eg employee table  
+employee id can be the primary key
+employee email can be a unique key
+make sense it would make.
+
+I want to create let's say a primay key on these - firstname and lastname that means what I am saying 
+A combination of first name and lastname has to be uniquely identified it might not be a scenario in real world 
+but let's think that this is the scenario----
+
+CREATE TABLE employee (
+firstname VARCHAR(20) NOT NULL,
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+PRIMARY KEY(firstname, lastname)
+);
+
+this is what we can definitely do.
+
+DESC employee;
+
+
+insert into employee values('kapil', 'sharma',28);
+--repeat it's concatenating firstname and lastame and that is now the primary key so I hope how a composite primary key works
+
+IF YOU WANT TO GIVE A UNIQUE CONSTRAINT
+what can you do instead of doing like above
+
+put unique key like 
+
+CREATE TABLE employee (
+id int UNIQUE KEY,
+firstname VARCHAR(20),
+lastname VARCHAR(20),
+age INT NOT NULL
+);
+
+-- this is what i am trying to say
+
+insert into employee values(1, 'kapil', 'sharma',28),
+(NULL, 'kapil', 'sharma',28),
+(NULL, 'kapil', 'sharma',28);
+
+
+===Primary, autoincrement, unique, unique vs primay
+
+
+Let's start with some CRUD operations
+
+Create -- Insert -- create is actually insert we have seen quite extensively earlier -->it inserts the data
+Read -- Read -- read is basically to read the data using select commands.
+Update -- is to update the records which we will be seeing definitely.
+Delete -- is to delete the records. 
+So we have till now seen insert but now we have to see little bit on the select, update and delete.
+
+DROP DATABASE itplc;
+
+now I will recreate it -->
+
+CREATE DATABASE itplc;
+
+what I want is to create a table structure named employee -->
+
+USE itplc;
+
+CREATE TABLE employee (
+id INT PRIMARY KEY,
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20) NOT NULL DEFAULT 'Bangalore'
+);
+
+if i want to see the structure 
+
+DESC employee;
+
+
+Let me insert a few records
+-- Insert into employee and I'm giving the value for id, firstname, lastname I am skipping the middle name 
+Can I skip or not...Yes I can so by default the value is null and I'm not giving the value for location because by default
+it is treated as bangalore. 
+
+
+
+INSERT INTO employee(id, firstname, lastname, age, salary)
+VALUES(1, 'rajesh', 'sharma', 28, 10000);
+
+INSERT INTO employee(id, firstname, lastname, age, salary)
+VALUES(2, 'kapil', 'sharma', 30, 20000);
+
+INSERT INTO employee(id, firstname, lastname, age, salary)
+VALUES(3, 'Manish', 'sharma', 32, 30000);
+
+
+SELECT * from employee;
+
+-- LEt's see how to have variants of select 
+
+
+SELECT --->
+====
+
+-- Reading the data.
+
+-- Selecting all the columns
+ 
+SELECT * FROM employee;
+
+
+What if I just want to get first name and last name how to get it--->
+
+-- Selecting specific columns
+
+SELECT firstname,lastname FROM employee;
+
+-- So this is preety straight forward i don't think it would require more explanation you can give the column names whatever you want.
+
+-- if only few rows -- what if I want just only two rows based on some condition based on some filter --
+
+-- Let's say I want people whose age is greater than 29?
+
+-- Select by applying where clause (filter condition)
+
+SELECT * FROM employee WHERE age > 29;
+
+SELECT * FROM employee WHERE firstname = 'manish';
+
+-- But do you see one thing here that in our table we have given manish "M" in capital and now when we are searching for manish 
+where 'm' is small the first letter is small then also it's picking up that means by default it is case insensitive it
+doesn't matter whether you give it in uppercase or lowercase 
+
+
+what if for some reasons you want to make it case sensitive you can have a business use case definitely.
+
+
+SELECT * FROM employee WHERE binary firstname = 'manish'; 
+
+-- error
+
+
+
+SELECT * FROM employee WHERE binary firstname = 'Manish';
+
+
+the above statement will match the exact case and it is case sensitive
+
+-- For example you have to get the firstname and lastname but you want to name it as name and surname like that.
+then how do you do?
+
+SELECT firstname,lastname FROM employee; -- without ALIAS -->AS
+
+SELECT firstname AS name,lastname AS surname FROM employee;
+
+
+if you want to have a alias you have to use the AS keyword.
+
+
+=====how to get all columns
+select all columns using *
+select specific columns we can mention or specify the columnnames
+we can give a where clause to filter the records by default it is case insensitive if we want to make it case sensitive we 
+can use the binary keyword 
+and then we have checked alias so that the column names show differently ----Nothing but read operation in crud
+
+
+
+UPDATE
+=========
+
+SELECT * FROM employee;
+
+You want to update the last name of manish 
+
+UPDATE employee set lastname='sinha' where firstname='manish';
+
+
+
+-- Now consider kapil moved from bangalore to ahmedabad and we want to change the location for Kapil.
+
+update employee set location='ahmedabad' where firstname ='kapil';
+
+
+what if i say 
+
+update employee set location='ahmedabad'; 
+
+i didn't give a where clause in this case 
+
+-- it'll update the entire table it will match all the records in this case it will be able to match the 3 records
+because there is no where clause and it will update two records because one record already has ahmedabad.
+
+
+
+
+--- I want to increase the salary of each person by 5000;
+
+UPDATE employee set salary = salary+5000; 
+
+
+-- you want to match two clauses 
+
+-- in the where clause you give and condition that means you want to match two clauses.
+
+suppose i want to change the location of manish to bangalore I might have multiple records with the name so I want to for the 
+complete name.
+
+UPDATE employee SET location='bangalore' where firstname = 'manish' and lastname = 'sinha';
+
+you can see rows match one change. All what I wanted to say is that we can use this logical and or operators when we want to 
+filter based on multiple conditions I hope this is clear.
+
+
+=== While doing the update you have to be very careful becuause if let's say where clause or you are not filtering it properly
+you might end up doing changes to the records which you do not want so always a good practice is first run a select command
+with the same where clause filter and once you feel that you are able to pull only the necessary record then you put the update 
+command.
+Because you do not want to run into a issue where you end up updating unnecessary records which you don't want.
+
+DELETE
+======
+
+SELECT * FROM employee;
+
+I want to delete id 3 as the person is leaving.
+
+so what we can do 
+
+
+DELETE FROM employee where id=3;
+
+-- when you are doing a delete make sure first you kind of check it with the select statement like it is pulling 
+out the right record for you or not.
+-- Because you do not want to run into a issue where you end up deleting something which you don't want 
+
+
+
+=== What if I say 
+
+delete from employee;
+
+-- I am not giving a where clause what will happen in this case all the records will be deleted.
+
+
+CREATE TABLE employee (
+id INT PRIMARY KEY,
+firstname VARCHAR(20) NOT NULL,
+middlename VARCHAR(20),
+lastname VARCHAR(20) NOT NULL,
+age INT NOT NULL,
+salary INT NOT NULL,
+location VARCHAR(20) NOT NULL DEFAULT 'Bangalore'
+);
+
+

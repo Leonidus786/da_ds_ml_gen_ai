@@ -1,0 +1,55 @@
+
+
+select * from Employees;
+
+select firstname from Employees;
+
+select firstname,Salary from Employees;
+
+select FirstName,LastName from Employees;
+
+select EmployeeID,concat(firstname,' ',LastName) from Employees;
+
+select EmployeeID,concat(firstname,' ',LastName) [Full Name] from Employees;
+
+SELECT EmployeeID,
+       CONCAT(FirstName, ' ', LastName) AS `Full Name`
+FROM Employees;
+
+select EmployeeID,concat(firstname,' ',LastName) as [Full Name] from Employees;
+
+
+-- No spaces in the alias, so no backticks are needed.
+SELECT EmployeeID,
+       CONCAT(FirstName, ' ', LastName) AS FullName
+FROM Employees;
+
+SELECT EmployeeID,
+       CONCAT(FirstName, ' ', LastName) `Full Name`
+FROM Employees;
+
+
+
+
+Why Backticks?
+
+If an alias contains:
+
+spaces
+special characters
+reserved keywords
+
+MySQL requires backticks.
+
+
+Alias Syntax Comparison
+
+| Database       | Alias with Space   |
+| -------------- | ------------------ |
+| **MySQL**      | ``AS `Full Name``` |
+| **SQL Server** | `AS [Full Name]`   |
+| **PostgreSQL** | `AS "Full Name"`   |
+| **Oracle**     | `AS "Full Name"`   |
+
+
+

@@ -1,0 +1,77 @@
+
+-- Create database employee_info
+CREATE DATABASE employee_info;
+
+-- DELETe the database employee_info
+DROP DATABASE employee_info;
+
+
+-- Select database you are going to use 
+USE master;
+
+USE employee_info;
+
+
+-- In order to understand anything inside sql you need a database and a table
+
+CREATE TABLE Employees (
+	EmployeeID INT PRIMARY KEY,
+	FirstName VARCHAR(50),
+	LastName VARCHAR(50),
+	Department VARCHAR(50),
+	Salary DECIMAL(10,2),
+	HireDate DATE
+);
+
+
+-- delete the table from master db
+DROP TABLE Employees
+
+
+
+
+
+
+
+INSERT INTO Employees (EmployeeID, FirstName, LastName, Department, Salary, HireDate)
+VALUES
+(1, 'John', 'Doe', 'HR', 50000.00, '2020-01-15'),
+(2, 'Jane', 'Smith', 'Finance', 60000.00, '2019-03-23'),
+(3, 'Alice', 'Johnson', 'IT', 75000.00, '2021-07-10'),
+(4, 'Bob', 'Brown', 'Marketing', 55000.00, '2018-09-30'),
+(5, 'Charlie', 'Davis', 'IT', 70000.00, '2022-02-20');
+
+
+
+
+
+
+
+--Select Practice--
+
+select * from Employees
+
+
+select firstname from Employees
+
+select firstname,Salary from Employees
+
+select FirstName,LastName from Employees
+
+select * FROM Employees
+
+select EmployeeID,concat(firstname,' ',LastName) from Employees
+
+select EmployeeID,concat(firstname,' ',LastName) [Full Name] from Employees;
+
+
+-- ~  
+SELECT EmployeeID,
+       CONCAT(FirstName, ' ', LastName) AS 'Full Name'
+FROM Employees;
+
+select EmployeeID,concat(firstname,' ',LastName) as [Full Name] from Employees;
+
+SELECT EmployeeID,
+       CONCAT(FirstName, ' ', LastName) AS FullName
+FROM Employees;
